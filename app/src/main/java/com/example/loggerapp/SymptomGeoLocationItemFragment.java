@@ -11,13 +11,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.loggerapp.content.SymptomBodyLocationContent;
-import com.example.loggerapp.recycler_views.MySymptomBodyLocationItemRecyclerViewAdapter;
+import com.example.loggerapp.content.SymptomGeoLocationContent;
+import com.example.loggerapp.recycler_views.MySymptomGeoLocationItemRecyclerViewAdapter;
 
 /**
  * A fragment representing a list of Items.
  */
-public class SymptomBodyLocationItemFragment extends Fragment {
+public class SymptomGeoLocationItemFragment extends Fragment {
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 1;
@@ -26,13 +26,13 @@ public class SymptomBodyLocationItemFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public SymptomBodyLocationItemFragment() {
+    public SymptomGeoLocationItemFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static SymptomBodyLocationItemFragment newInstance(int columnCount) {
-        SymptomBodyLocationItemFragment fragment = new SymptomBodyLocationItemFragment();
+    public static SymptomGeoLocationItemFragment newInstance(int columnCount) {
+        SymptomGeoLocationItemFragment fragment = new SymptomGeoLocationItemFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -51,7 +51,7 @@ public class SymptomBodyLocationItemFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_symptom_body_location_item_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_symptom_geo_location_item_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -62,7 +62,7 @@ public class SymptomBodyLocationItemFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MySymptomBodyLocationItemRecyclerViewAdapter(SymptomBodyLocationContent.ITEMS, SymptomBodyLocationItemFragment.this));
+            recyclerView.setAdapter(new MySymptomGeoLocationItemRecyclerViewAdapter(SymptomGeoLocationContent.ITEMS));
         }
         return view;
     }

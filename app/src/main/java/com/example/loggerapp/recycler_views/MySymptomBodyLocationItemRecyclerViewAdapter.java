@@ -1,13 +1,18 @@
 package com.example.loggerapp.recycler_views;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.loggerapp.R;
 import com.example.loggerapp.content.SymptomBodyLocationContent.SymptomBodyLocationItem;
 import com.example.loggerapp.databinding.FragmentSymptomBodyLocationItemBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -17,9 +22,11 @@ import java.util.List;
 public class MySymptomBodyLocationItemRecyclerViewAdapter extends RecyclerView.Adapter<MySymptomBodyLocationItemRecyclerViewAdapter.ViewHolder> {
 
     private final List<SymptomBodyLocationItem> mValues;
+    private final Fragment mReferencedFragment;
 
-    public MySymptomBodyLocationItemRecyclerViewAdapter(List<SymptomBodyLocationItem> items) {
+    public MySymptomBodyLocationItemRecyclerViewAdapter(List<SymptomBodyLocationItem> items, Fragment referencedFragment) {
         mValues = items;
+        mReferencedFragment = referencedFragment;
     }
 
     @Override
@@ -31,6 +38,14 @@ public class MySymptomBodyLocationItemRecyclerViewAdapter extends RecyclerView.A
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mContentView.setText(mValues.get(position).content);
+        holder.mContentView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(mReferencedFragment)
+                        .navigate(R.id.action_symptomBodyLocationItemFragment_to_symptomGeoLocationItemFragment);
+
+            }
+        });
     }
 
     @Override

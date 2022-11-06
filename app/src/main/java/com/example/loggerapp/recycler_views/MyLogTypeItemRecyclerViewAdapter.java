@@ -48,7 +48,7 @@ public class MyLogTypeItemRecyclerViewAdapter extends RecyclerView.Adapter<MyLog
                         NavHostFragment.findNavController(mReferencedFragment)
                                 .navigate(R.id.action_logTypeItemFragment_to_symptomTypeItemFragment);
                     default:
-                        Snackbar.make(view, "Not implemented yet", 20).setAction("action", null).show();
+                        Snackbar.make(view, "Not implemented yet", 500).setAction("action", null).show();
                 }
 
             }

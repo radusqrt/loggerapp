@@ -16,9 +16,18 @@ public class SymptomBodyLocationContent {
 
     static {
         // Add LogType items.
-        ITEMS.add(new SymptomBodyLocationItem("Pain"));
+        ITEMS.add(new SymptomBodyLocationItem("Head"));
+        ITEMS.add(new SymptomBodyLocationItem("Eyes"));
+        ITEMS.add(new SymptomBodyLocationItem("Neck"));
+        ITEMS.add(new SymptomBodyLocationItem("Chest"));
+        ITEMS.add(new SymptomBodyLocationItem("Arm-Left"));
+        ITEMS.add(new SymptomBodyLocationItem("Arm-Right"));
+        ITEMS.add(new SymptomBodyLocationItem("Intestine"));
+        ITEMS.add(new SymptomBodyLocationItem("Leg-Left"));
+        ITEMS.add(new SymptomBodyLocationItem("Leg-Right"));
 
         Collections.sort(ITEMS, (SymptomBodyLocationItem, t1) -> SymptomBodyLocationItem.content.compareTo(t1.content));
+        ITEMS.add(0, new SymptomBodyLocationItem("N/A"));
     }
 
     /**
