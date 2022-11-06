@@ -18,5 +18,14 @@
         android:id="@+id/symptomTypeItemFragment"
         android:name="com.example.loggerapp.SymptomTypeItemFragment"
         android:label="fragment_symptom_type_item_list"
-        tools:layout="@layout/fragment_symptom_type_item_list" />
+        tools:layout="@layout/fragment_symptom_type_item_list" >
+        <action
+            android:id="@+id/action_symptomTypeItemFragment_to_symptomBodyLocationItemFragment"
+            app:destination="@id/symptomBodyLocationItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/symptomBodyLocationItemFragment"
+        android:name="com.example.loggerapp.SymptomBodyLocationItemFragment"
+        android:label="fragment_symptom_body_location_item_list"
+        tools:layout="@layout/fragment_symptom_body_location_item_list" />
 </navigation>
