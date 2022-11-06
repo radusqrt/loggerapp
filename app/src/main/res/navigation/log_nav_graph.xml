@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_logTypeItemFragment_to_symptomTypeItemFragment"
             app:destination="@id/symptomTypeItemFragment" />
+        <action
+            android:id="@+id/action_logTypeItemFragment_to_foodTypeItemFragment"
+            app:destination="@id/foodTypeItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/symptomTypeItemFragment"
@@ -37,4 +40,9 @@
         android:name="com.example.loggerapp.SymptomGeoLocationItemFragment"
         android:label="fragment_symptom_geo_location_item_list"
         tools:layout="@layout/fragment_symptom_geo_location_item_list" />
+    <fragment
+        android:id="@+id/foodTypeItemFragment"
+        android:name="com.example.loggerapp.FoodTypeItemFragment"
+        android:label="fragment_food_type_item_list"
+        tools:layout="@layout/fragment_food_type_item_list" />
 </navigation>
