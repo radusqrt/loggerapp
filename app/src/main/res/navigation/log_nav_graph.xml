@@ -9,5 +9,14 @@
         android:id="@+id/logTypeItemFragment"
         android:name="com.example.loggerapp.LogTypeItemFragment"
         android:label="Log type"
-        tools:layout="@layout/fragment_log_type_item_list" />
+        tools:layout="@layout/fragment_log_type_item_list" >
+        <action
+            android:id="@+id/action_logTypeItemFragment_to_symptomTypeItemFragment"
+            app:destination="@id/symptomTypeItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/symptomTypeItemFragment"
+        android:name="com.example.loggerapp.SymptomTypeItemFragment"
+        android:label="fragment_symptom_type_item_list"
+        tools:layout="@layout/fragment_symptom_type_item_list" />
 </navigation>

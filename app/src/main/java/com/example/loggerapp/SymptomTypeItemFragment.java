@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.loggerapp.placeholder.PlaceholderContent;
+import com.example.loggerapp.content.SymptomTypeContent;
 import com.example.loggerapp.recycler_views.MySymptomTypeItemRecyclerViewAdapter;
 
 /**
@@ -20,9 +20,7 @@ import com.example.loggerapp.recycler_views.MySymptomTypeItemRecyclerViewAdapter
  */
 public class SymptomTypeItemFragment extends Fragment {
 
-    // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
     private int mColumnCount = 1;
 
     /**
@@ -65,7 +63,7 @@ public class SymptomTypeItemFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MySymptomTypeItemRecyclerViewAdapter(PlaceholderContent.ITEMS));
+            recyclerView.setAdapter(new MySymptomTypeItemRecyclerViewAdapter(SymptomTypeContent.ITEMS));
         }
         return view;
     }

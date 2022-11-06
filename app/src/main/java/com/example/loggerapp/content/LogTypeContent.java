@@ -1,6 +1,7 @@
 package com.example.loggerapp.content;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,8 @@ public class LogTypeContent {
         ITEMS.add(new LogTypeItem("Food"));
         ITEMS.add(new LogTypeItem("Supplements or drugs"));
         ITEMS.add(new LogTypeItem("Activity"));
+
+        Collections.sort(ITEMS, (symptomTypeItem, t1) -> symptomTypeItem.content.compareTo(t1.content));
     }
 
     /**

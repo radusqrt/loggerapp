@@ -3,7 +3,10 @@ package com.example.loggerapp;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.loggerapp.content.LogTypeContent;
+import com.example.loggerapp.databinding.FragmentFirstBinding;
+import com.example.loggerapp.databinding.FragmentLogTypeItemBinding;
 import com.example.loggerapp.recycler_views.MyLogTypeItemRecyclerViewAdapter;
 
 /**
@@ -22,6 +27,7 @@ public class LogTypeItemFragment extends Fragment {
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 1;
+    private FragmentLogTypeItemBinding binding;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -52,6 +58,9 @@ public class LogTypeItemFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+//        binding = FragmentLogTypeItemBinding.inflate(inflater, container, false);
+//        return binding.getRoot();
+
         View view = inflater.inflate(R.layout.fragment_log_type_item_list, container, false);
 
         // Set the adapter
@@ -63,7 +72,7 @@ public class LogTypeItemFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyLogTypeItemRecyclerViewAdapter(LogTypeContent.ITEMS));
+            recyclerView.setAdapter(new MyLogTypeItemRecyclerViewAdapter(LogTypeContent.ITEMS, LogTypeItemFragment.this));
         }
         return view;
     }
