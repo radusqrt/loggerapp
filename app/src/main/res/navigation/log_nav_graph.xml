@@ -48,10 +48,18 @@
         <action
             android:id="@+id/action_foodTypeItemFragment_to_dairyItemFragment"
             app:destination="@id/dairyItemFragment" />
+        <action
+            android:id="@+id/action_foodTypeItemFragment_to_fruitsItemFragment"
+            app:destination="@id/fruitsItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/dairyItemFragment"
         android:name="com.example.loggerapp.fragments.food.DairyItemFragment"
         android:label="fragment_dairy_item_list"
         tools:layout="@layout/fragment_dairy_item_list" />
+    <fragment
+        android:id="@+id/fruitsItemFragment"
+        android:name="com.example.loggerapp.fragments.food.FruitsItemFragment"
+        android:label="fragment_fruits_item_list"
+        tools:layout="@layout/fragment_fruits_item_list" />
 </navigation>

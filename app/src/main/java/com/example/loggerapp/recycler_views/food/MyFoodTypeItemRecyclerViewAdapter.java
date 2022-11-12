@@ -46,6 +46,10 @@ public class MyFoodTypeItemRecyclerViewAdapter extends RecyclerView.Adapter<MyFo
                         NavHostFragment.findNavController(mReferencedFragment)
                                 .navigate(R.id.action_foodTypeItemFragment_to_dairyItemFragment);
                         break;
+                    case "Fruits":
+                        NavHostFragment.findNavController(mReferencedFragment)
+                                .navigate(R.id.action_foodTypeItemFragment_to_fruitsItemFragment);
+                        break;
                     default:
                         Snackbar.make(view, "Not implemented yet", 500).setAction("action", null).show();
                 }
