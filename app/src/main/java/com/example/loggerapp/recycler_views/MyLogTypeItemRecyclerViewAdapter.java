@@ -52,6 +52,10 @@ public class MyLogTypeItemRecyclerViewAdapter extends RecyclerView.Adapter<MyLog
                         NavHostFragment.findNavController(mReferencedFragment)
                                 .navigate(R.id.action_logTypeItemFragment_to_foodTypeItemFragment);
                         break;
+                    case "Supplements or drugs":
+                        NavHostFragment.findNavController(mReferencedFragment)
+                                .navigate(R.id.action_logTypeItemFragment_to_supplementsItemFragment);
+                        break;
                     default:
                         Snackbar.make(view, "Not implemented yet", 500).setAction("action", null).show();
                 }

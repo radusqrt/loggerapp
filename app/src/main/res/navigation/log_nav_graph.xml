@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_logTypeItemFragment_to_foodTypeItemFragment"
             app:destination="@id/foodTypeItemFragment" />
+        <action
+            android:id="@+id/action_logTypeItemFragment_to_supplementsItemFragment"
+            app:destination="@id/supplementsItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/symptomTypeItemFragment"
@@ -86,4 +89,9 @@
         android:name="com.example.loggerapp.fragments.food.VegetablesItemFragment"
         android:label="fragment_vegetables_item_list"
         tools:layout="@layout/fragment_vegetables_item_list" />
+    <fragment
+        android:id="@+id/supplementsItemFragment"
+        android:name="com.example.loggerapp.fragments.SupplementsItemFragment"
+        android:label="fragment_supplements_item_list"
+        tools:layout="@layout/fragment_supplements_item_list" />
 </navigation>
