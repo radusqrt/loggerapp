@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
@@ -14,8 +15,14 @@ import com.example.loggerapp.R;
 import com.example.loggerapp.content.SupplementsContent.SupplementsItem;
 import com.example.loggerapp.databinding.FragmentSupplementsItemBinding;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import org.json.JSONObject;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link SupplementsItem}.
@@ -39,6 +46,31 @@ public class MySupplementsItemRecyclerViewAdapter extends RecyclerView.Adapter<M
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mContentView.setText(mValues.get(position).content);
+        holder.mContentView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String supplement = null;
+                switch (holder.mItem.content) {
+                    case "Athletic Greens":
+                        supplement = "ATHLETIC_GREENS";
+                        break;
+                    case "Magnesiocard":
+                        supplement = "MAGNESIOCARD";
+                        break;
+                    default:
+                        supplement = "UNKNOWN";
+                        break;
+                }
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance("https://loggerapp-68c5b-default-rtdb.europe-west1.firebasedatabase.app");
+                DatabaseReference logsRef = database.getReference().child("logs");
+                String key = logsRef.push().getKey();
+
+                logsRef.child(key).child("timestamp").setValue(System.currentTimeMillis() / 1000);
+                logsRef.child(key).child("type").setValue("supplements");
+                logsRef.child(key).child("supplements").setValue(supplement);
+            }
+        });
     }
 
     @Override
