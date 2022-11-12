@@ -1,4 +1,4 @@
-package com.example.loggerapp.content;
+package com.example.loggerapp.content.food;
 
 import java.util.ArrayList;
 import java.util.Collections;

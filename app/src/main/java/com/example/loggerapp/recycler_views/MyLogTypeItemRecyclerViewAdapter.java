@@ -4,13 +4,12 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.loggerapp.FirstFragment;
-import com.example.loggerapp.LogTypeItemFragment;
 import com.example.loggerapp.R;
 import com.example.loggerapp.content.LogTypeContent.LogTypeItem;
 import com.example.loggerapp.databinding.FragmentLogTypeItemBinding;
@@ -38,6 +37,7 @@ public class MyLogTypeItemRecyclerViewAdapter extends RecyclerView.Adapter<MyLog
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
+        Log.i("FragmentDebug", "onBindViewHolder");
         holder.mItem = mValues.get(position);
         holder.mContentView.setText(mValues.get(position).content);
         holder.mContentView.setOnClickListener(new View.OnClickListener() {
@@ -47,9 +47,11 @@ public class MyLogTypeItemRecyclerViewAdapter extends RecyclerView.Adapter<MyLog
                     case "Symptom":
                         NavHostFragment.findNavController(mReferencedFragment)
                                 .navigate(R.id.action_logTypeItemFragment_to_symptomTypeItemFragment);
+                        break;
                     case "Food":
                         NavHostFragment.findNavController(mReferencedFragment)
                                 .navigate(R.id.action_logTypeItemFragment_to_foodTypeItemFragment);
+                        break;
                     default:
                         Snackbar.make(view, "Not implemented yet", 500).setAction("action", null).show();
                 }

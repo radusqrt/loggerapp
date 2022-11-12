@@ -1,24 +1,24 @@
-package com.example.loggerapp;
+package com.example.loggerapp.fragments.food;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.example.loggerapp.content.SymptomTypeContent;
-import com.example.loggerapp.recycler_views.MySymptomTypeItemRecyclerViewAdapter;
+import com.example.loggerapp.R;
+import com.example.loggerapp.content.food.FoodTypeContent;
+import com.example.loggerapp.recycler_views.food.MyFoodTypeItemRecyclerViewAdapter;
 
 /**
  * A fragment representing a list of Items.
  */
-public class SymptomTypeItemFragment extends Fragment {
+public class FoodTypeItemFragment extends Fragment {
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 1;
@@ -27,13 +27,13 @@ public class SymptomTypeItemFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public SymptomTypeItemFragment() {
+    public FoodTypeItemFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static SymptomTypeItemFragment newInstance(int columnCount) {
-        SymptomTypeItemFragment fragment = new SymptomTypeItemFragment();
+    public static FoodTypeItemFragment newInstance(int columnCount) {
+        FoodTypeItemFragment fragment = new FoodTypeItemFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -52,7 +52,7 @@ public class SymptomTypeItemFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_symptom_type_item_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_food_type_item_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -63,7 +63,7 @@ public class SymptomTypeItemFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MySymptomTypeItemRecyclerViewAdapter(SymptomTypeContent.ITEMS, SymptomTypeItemFragment.this));
+            recyclerView.setAdapter(new MyFoodTypeItemRecyclerViewAdapter(FoodTypeContent.ITEMS, FoodTypeItemFragment.this));
         }
         return view;
     }

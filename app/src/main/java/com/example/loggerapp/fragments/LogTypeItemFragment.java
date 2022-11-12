@@ -1,38 +1,42 @@
-package com.example.loggerapp;
+package com.example.loggerapp.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.loggerapp.content.SymptomBodyLocationContent;
-import com.example.loggerapp.recycler_views.MySymptomBodyLocationItemRecyclerViewAdapter;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.example.loggerapp.R;
+import com.example.loggerapp.content.LogTypeContent;
+import com.example.loggerapp.databinding.FragmentLogTypeItemBinding;
+import com.example.loggerapp.recycler_views.MyLogTypeItemRecyclerViewAdapter;
 
 /**
  * A fragment representing a list of Items.
  */
-public class SymptomBodyLocationItemFragment extends Fragment {
+public class LogTypeItemFragment extends Fragment {
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 1;
+    private FragmentLogTypeItemBinding binding;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public SymptomBodyLocationItemFragment() {
+    public LogTypeItemFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static SymptomBodyLocationItemFragment newInstance(int columnCount) {
-        SymptomBodyLocationItemFragment fragment = new SymptomBodyLocationItemFragment();
+    public static LogTypeItemFragment newInstance(int columnCount) {
+        LogTypeItemFragment fragment = new LogTypeItemFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -51,7 +55,10 @@ public class SymptomBodyLocationItemFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_symptom_body_location_item_list, container, false);
+//        binding = FragmentLogTypeItemBinding.inflate(inflater, container, false);
+//        return binding.getRoot();
+
+        View view = inflater.inflate(R.layout.fragment_log_type_item_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -62,7 +69,7 @@ public class SymptomBodyLocationItemFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MySymptomBodyLocationItemRecyclerViewAdapter(SymptomBodyLocationContent.ITEMS, SymptomBodyLocationItemFragment.this));
+            recyclerView.setAdapter(new MyLogTypeItemRecyclerViewAdapter(LogTypeContent.ITEMS, LogTypeItemFragment.this));
         }
         return view;
     }

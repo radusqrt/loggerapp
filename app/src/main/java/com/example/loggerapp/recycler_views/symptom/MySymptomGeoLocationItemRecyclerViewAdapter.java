@@ -1,4 +1,4 @@
-package com.example.loggerapp.recycler_views;
+package com.example.loggerapp.recycler_views.symptom;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.loggerapp.content.SymptomGeoLocationContent.SymptomGeoLocationItem;
+import com.example.loggerapp.content.symptom.SymptomGeoLocationContent.SymptomGeoLocationItem;
 import com.example.loggerapp.databinding.FragmentSymptomGeoLocationItemBinding;
 
 import java.util.List;

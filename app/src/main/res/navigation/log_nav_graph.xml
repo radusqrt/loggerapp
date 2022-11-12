@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/logTypeItemFragment"
-        android:name="com.example.loggerapp.LogTypeItemFragment"
+        android:name="com.example.loggerapp.fragments.LogTypeItemFragment"
         android:label="Log type"
         tools:layout="@layout/fragment_log_type_item_list" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/symptomTypeItemFragment"
-        android:name="com.example.loggerapp.SymptomTypeItemFragment"
+        android:name="com.example.loggerapp.fragments.symptom.SymptomTypeItemFragment"
         android:label="fragment_symptom_type_item_list"
         tools:layout="@layout/fragment_symptom_type_item_list" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/symptomBodyLocationItemFragment"
-        android:name="com.example.loggerapp.SymptomBodyLocationItemFragment"
+        android:name="com.example.loggerapp.fragments.symptom.SymptomBodyLocationItemFragment"
         android:label="fragment_symptom_body_location_item_list"
         tools:layout="@layout/fragment_symptom_body_location_item_list" >
         <action
@@ -37,12 +37,21 @@
     </fragment>
     <fragment
         android:id="@+id/symptomGeoLocationItemFragment"
-        android:name="com.example.loggerapp.SymptomGeoLocationItemFragment"
+        android:name="com.example.loggerapp.fragments.symptom.SymptomGeoLocationItemFragment"
         android:label="fragment_symptom_geo_location_item_list"
         tools:layout="@layout/fragment_symptom_geo_location_item_list" />
     <fragment
         android:id="@+id/foodTypeItemFragment"
-        android:name="com.example.loggerapp.FoodTypeItemFragment"
+        android:name="com.example.loggerapp.fragments.food.FoodTypeItemFragment"
         android:label="fragment_food_type_item_list"
-        tools:layout="@layout/fragment_food_type_item_list" />
+        tools:layout="@layout/fragment_food_type_item_list" >
+        <action
+            android:id="@+id/action_foodTypeItemFragment_to_dairyItemFragment"
+            app:destination="@id/dairyItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dairyItemFragment"
+        android:name="com.example.loggerapp.fragments.food.DairyItemFragment"
+        android:label="fragment_dairy_item_list"
+        tools:layout="@layout/fragment_dairy_item_list" />
 </navigation>

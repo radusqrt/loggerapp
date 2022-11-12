@@ -1,4 +1,4 @@
-package com.example.loggerapp.recycler_views;
+package com.example.loggerapp.recycler_views.symptom;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
@@ -10,9 +10,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.loggerapp.R;
-import com.example.loggerapp.content.SymptomTypeContent.SymptomTypeItem;
+import com.example.loggerapp.content.symptom.SymptomTypeContent.SymptomTypeItem;
 import com.example.loggerapp.databinding.FragmentSymptomTypeItemBinding;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 

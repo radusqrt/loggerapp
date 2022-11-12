@@ -1,4 +1,4 @@
-package com.example.loggerapp.recycler_views;
+package com.example.loggerapp.recycler_views.food;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,28 +10,28 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loggerapp.R;
-import com.example.loggerapp.content.SymptomBodyLocationContent.SymptomBodyLocationItem;
-import com.example.loggerapp.databinding.FragmentSymptomBodyLocationItemBinding;
+import com.example.loggerapp.content.food.FoodTypeContent.FoodTypeItem;
+import com.example.loggerapp.databinding.FragmentFoodTypeItemBinding;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link SymptomBodyLocationItem}.
+ * {@link RecyclerView.Adapter} that can display a {@link FoodTypeItem}.
  */
-public class MySymptomBodyLocationItemRecyclerViewAdapter extends RecyclerView.Adapter<MySymptomBodyLocationItemRecyclerViewAdapter.ViewHolder> {
+public class MyFoodTypeItemRecyclerViewAdapter extends RecyclerView.Adapter<MyFoodTypeItemRecyclerViewAdapter.ViewHolder> {
 
-    private final List<SymptomBodyLocationItem> mValues;
+    private final List<FoodTypeItem> mValues;
     private final Fragment mReferencedFragment;
 
-    public MySymptomBodyLocationItemRecyclerViewAdapter(List<SymptomBodyLocationItem> items, Fragment referencedFragment) {
+    public MyFoodTypeItemRecyclerViewAdapter(List<FoodTypeItem> items, Fragment referencedFragment) {
         mValues = items;
         mReferencedFragment = referencedFragment;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(FragmentSymptomBodyLocationItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new ViewHolder(FragmentFoodTypeItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
@@ -41,8 +41,14 @@ public class MySymptomBodyLocationItemRecyclerViewAdapter extends RecyclerView.A
         holder.mContentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(mReferencedFragment)
-                        .navigate(R.id.action_symptomBodyLocationItemFragment_to_symptomGeoLocationItemFragment);
+                switch (holder.mItem.content) {
+                    case "Dairy":
+                        NavHostFragment.findNavController(mReferencedFragment)
+                                .navigate(R.id.action_foodTypeItemFragment_to_dairyItemFragment);
+                        break;
+                    default:
+                        Snackbar.make(view, "Not implemented yet", 500).setAction("action", null).show();
+                }
 
             }
         });
@@ -55,9 +61,9 @@ public class MySymptomBodyLocationItemRecyclerViewAdapter extends RecyclerView.A
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView mContentView;
-        public SymptomBodyLocationItem mItem;
+        public FoodTypeItem mItem;
 
-        public ViewHolder(FragmentSymptomBodyLocationItemBinding binding) {
+        public ViewHolder(FragmentFoodTypeItemBinding binding) {
             super(binding.getRoot());
             mContentView = binding.content;
         }
