@@ -12,30 +12,30 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loggerapp.R;
-import com.example.loggerapp.content.SupplementsContent;
-import com.example.loggerapp.databinding.FragmentSupplementsItemBinding;
-import com.example.loggerapp.recycler_views.MySupplementsItemRecyclerViewAdapter;
+import com.example.loggerapp.content.ActivityContent;
+import com.example.loggerapp.databinding.FragmentActivityItemBinding;
+import com.example.loggerapp.recycler_views.MyActivityItemRecyclerViewAdapter;
 
 /**
  * A fragment representing a list of Items.
  */
-public class SupplementsItemFragment extends Fragment {
+public class ActivityItemFragment extends Fragment {
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 1;
-    private FragmentSupplementsItemBinding binding;
+    private FragmentActivityItemBinding binding;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public SupplementsItemFragment() {
+    public ActivityItemFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static SupplementsItemFragment newInstance(int columnCount) {
-        SupplementsItemFragment fragment = new SupplementsItemFragment();
+    public static ActivityItemFragment newInstance(int columnCount) {
+        ActivityItemFragment fragment = new ActivityItemFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -54,10 +54,10 @@ public class SupplementsItemFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//        binding = FragmentSupplementsItemBinding.inflate(inflater, container, false);
+//        binding = FragmentActivityItemBinding.inflate(inflater, container, false);
 //        return binding.getRoot();
 
-        View view = inflater.inflate(R.layout.fragment_supplements_item_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_activity_item_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -68,7 +68,7 @@ public class SupplementsItemFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MySupplementsItemRecyclerViewAdapter(SupplementsContent.ITEMS, SupplementsItemFragment.this));
+            recyclerView.setAdapter(new MyActivityItemRecyclerViewAdapter(ActivityContent.ITEMS, ActivityItemFragment.this));
         }
         return view;
     }
