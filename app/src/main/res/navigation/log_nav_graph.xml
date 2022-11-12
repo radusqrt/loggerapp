@@ -57,6 +57,9 @@
         <action
             android:id="@+id/action_foodTypeItemFragment_to_meatItemFragment"
             app:destination="@id/meatItemFragment" />
+        <action
+            android:id="@+id/action_foodTypeItemFragment_to_vegetablesItemFragment"
+            app:destination="@id/vegetablesItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/dairyItemFragment"
@@ -78,4 +81,9 @@
         android:name="com.example.loggerapp.fragments.food.MeatItemFragment"
         android:label="fragment_meat_item_list"
         tools:layout="@layout/fragment_meat_item_list" />
+    <fragment
+        android:id="@+id/vegetablesItemFragment"
+        android:name="com.example.loggerapp.fragments.food.VegetablesItemFragment"
+        android:label="fragment_vegetables_item_list"
+        tools:layout="@layout/fragment_vegetables_item_list" />
 </navigation>
