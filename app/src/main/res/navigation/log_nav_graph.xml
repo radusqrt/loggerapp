@@ -40,12 +40,19 @@
         <action
             android:id="@+id/action_symptomBodyLocationItemFragment_to_symptomGeoLocationItemFragment"
             app:destination="@id/symptomGeoLocationItemFragment" />
+        <argument android:name="symptomType"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/symptomGeoLocationItemFragment"
         android:name="com.example.loggerapp.fragments.symptom.SymptomGeoLocationItemFragment"
         android:label="fragment_symptom_geo_location_item_list"
-        tools:layout="@layout/fragment_symptom_geo_location_item_list" />
+        tools:layout="@layout/fragment_symptom_geo_location_item_list" >
+        <argument android:name="symptomType"
+            app:argType="string" />
+        <argument android:name="symptomBodyLocation"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/foodTypeItemFragment"
         android:name="com.example.loggerapp.fragments.food.FoodTypeItemFragment"

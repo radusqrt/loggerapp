@@ -1,13 +1,19 @@
 package com.example.loggerapp.recycler_views.symptom;
 
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loggerapp.content.symptom.SymptomGeoLocationContent.SymptomGeoLocationItem;
 import com.example.loggerapp.databinding.FragmentSymptomGeoLocationItemBinding;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -17,9 +23,11 @@ import java.util.List;
 public class MySymptomGeoLocationItemRecyclerViewAdapter extends RecyclerView.Adapter<MySymptomGeoLocationItemRecyclerViewAdapter.ViewHolder> {
 
     private final List<SymptomGeoLocationItem> mValues;
+    private final Fragment mReferencedFragment;
 
-    public MySymptomGeoLocationItemRecyclerViewAdapter(List<SymptomGeoLocationItem> items) {
+    public MySymptomGeoLocationItemRecyclerViewAdapter(List<SymptomGeoLocationItem> items, Fragment referencedFragment) {
         mValues = items;
+        mReferencedFragment = referencedFragment;
     }
 
     @Override
@@ -31,6 +39,22 @@ public class MySymptomGeoLocationItemRecyclerViewAdapter extends RecyclerView.Ad
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mContentView.setText(mValues.get(position).content);
+        holder.mContentView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance("https://loggerapp-68c5b-default-rtdb.europe-west1.firebasedatabase.app");
+                DatabaseReference logsRef = database.getReference().child("logs");
+                String key = logsRef.push().getKey();
+
+                logsRef.child(key).child("timestamp").setValue(System.currentTimeMillis() / 1000);
+                logsRef.child(key).child("type").setValue("symptom");
+                logsRef.child(key).child("symptom").child("type").setValue(mReferencedFragment.getArguments().getString("symptomType").toLowerCase().replace(" ", "_"));
+                logsRef.child(key).child("symptom").child("bodyLocation").setValue(mReferencedFragment.getArguments().getString("symptomBodyLocation").toLowerCase().replace(" ", "_"));
+                logsRef.child(key).child("symptom").child("geoActivity").setValue(holder.mItem.content.toLowerCase().replace(" ", "_"));
+
+                Toast.makeText(view.getContext(), String.format("Added to database: %s", holder.mItem.content.toLowerCase().replace(" ", "_")), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override

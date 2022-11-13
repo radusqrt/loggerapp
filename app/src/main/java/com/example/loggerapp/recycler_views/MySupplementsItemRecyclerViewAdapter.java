@@ -49,26 +49,15 @@ public class MySupplementsItemRecyclerViewAdapter extends RecyclerView.Adapter<M
         holder.mContentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String supplement = null;
-                switch (holder.mItem.content) {
-                    case "Athletic Greens":
-                        supplement = "ATHLETIC_GREENS";
-                        break;
-                    case "Magnesiocard":
-                        supplement = "MAGNESIOCARD";
-                        break;
-                    default:
-                        supplement = "UNKNOWN";
-                        break;
-                }
-
-                FirebaseDatabase database = FirebaseDatabase.getInstance("https://loggerapp-68c5b-default-rtdb.europe-west1.firebasedatabase.app");
+                 FirebaseDatabase database = FirebaseDatabase.getInstance("https://loggerapp-68c5b-default-rtdb.europe-west1.firebasedatabase.app");
                 DatabaseReference logsRef = database.getReference().child("logs");
                 String key = logsRef.push().getKey();
 
                 logsRef.child(key).child("timestamp").setValue(System.currentTimeMillis() / 1000);
                 logsRef.child(key).child("type").setValue("supplements");
-                logsRef.child(key).child("supplements").setValue(supplement);
+                logsRef.child(key).child("supplements").setValue(holder.mItem.content.toLowerCase().replace(" ", "_"));
+
+                Toast.makeText(view.getContext(), String.format("Added to database: %s", holder.mItem.content.toLowerCase().replace(" ", "_")), Toast.LENGTH_LONG).show();
             }
         });
     }

@@ -2,6 +2,7 @@ package com.example.loggerapp.fragments.symptom;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,8 @@ public class SymptomGeoLocationItemFragment extends Fragment {
 
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
+            Log.d("Arguments", getArguments().getString("symptomType"));
+            Log.d("Arguments", getArguments().getString("symptomBodyLocation"));
         }
     }
 
@@ -63,7 +66,7 @@ public class SymptomGeoLocationItemFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MySymptomGeoLocationItemRecyclerViewAdapter(SymptomGeoLocationContent.ITEMS));
+            recyclerView.setAdapter(new MySymptomGeoLocationItemRecyclerViewAdapter(SymptomGeoLocationContent.ITEMS, SymptomGeoLocationItemFragment.this));
         }
         return view;
     }
