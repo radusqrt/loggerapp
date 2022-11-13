@@ -1,5 +1,7 @@
 package com.example.loggerapp.recycler_views.symptom;
 
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,8 +42,11 @@ public class MySymptomBodyLocationItemRecyclerViewAdapter extends RecyclerView.A
         holder.mContentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("symptomBodyLocation", holder.mItem.content);
+                bundle.putString("symptomType", mReferencedFragment.getArguments().getString("symptomType"));
                 NavHostFragment.findNavController(mReferencedFragment)
-                        .navigate(R.id.action_symptomBodyLocationItemFragment_to_symptomGeoLocationItemFragment);
+                        .navigate(R.id.action_symptomBodyLocationItemFragment_to_symptomGeoLocationItemFragment, bundle);
 
             }
         });

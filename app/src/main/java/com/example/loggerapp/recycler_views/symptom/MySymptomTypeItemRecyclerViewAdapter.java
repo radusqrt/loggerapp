@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,8 +41,10 @@ public class MySymptomTypeItemRecyclerViewAdapter extends RecyclerView.Adapter<M
         holder.mContentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("symptomType", holder.mItem.content);
                 NavHostFragment.findNavController(mReferencedFragment)
-                        .navigate(R.id.action_symptomTypeItemFragment_to_symptomBodyLocationItemFragment);
+                        .navigate(R.id.action_symptomTypeItemFragment_to_symptomBodyLocationItemFragment, bundle);
 
             }
         });

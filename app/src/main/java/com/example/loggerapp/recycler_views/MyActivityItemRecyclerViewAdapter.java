@@ -46,7 +46,7 @@ public class MyActivityItemRecyclerViewAdapter extends RecyclerView.Adapter<MyAc
         holder.mContentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String[] activityContent = holder.mItem.content.toUpperCase().split(":");
+                String[] activityContent = holder.mItem.content.toLowerCase().split(":");
                 try {
                     activityContent[1] = activityContent[1].replace("m", "").replace(" ", "");
                 } catch (Exception e) {
@@ -63,6 +63,8 @@ public class MyActivityItemRecyclerViewAdapter extends RecyclerView.Adapter<MyAc
                 logsRef.child(key).child("type").setValue("activity");
                 logsRef.child(key).child("activity").child("type").setValue(activityContent[0]);
                 logsRef.child(key).child("activity").child("duration").setValue(activityContent[1]);
+
+                Toast.makeText(view.getContext(), String.format("Added to database: %s", holder.mItem.content.toLowerCase().replace(" ", "_")), Toast.LENGTH_LONG).show();
             }
         });
     }

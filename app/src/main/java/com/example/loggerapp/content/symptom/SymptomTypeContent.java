@@ -18,8 +18,9 @@ public class SymptomTypeContent {
         // Add LogType items.
         ITEMS.add(new SymptomTypeItem("Pain"));
         ITEMS.add(new SymptomTypeItem("Focus impairment"));
-        ITEMS.add(new SymptomTypeItem("Imbalance, falling, dropping"));
-        ITEMS.add(new SymptomTypeItem("Shortness of breath"));
+        ITEMS.add(new SymptomTypeItem("Imbalance"));
+        ITEMS.add(new SymptomTypeItem("Dropping"));
+        ITEMS.add(new SymptomTypeItem("Dyspnea"));
         ITEMS.add(new SymptomTypeItem("Flatulence"));
         ITEMS.add(new SymptomTypeItem("Arrhythmia"));
         ITEMS.add(new SymptomTypeItem("Muscle spasm"));
