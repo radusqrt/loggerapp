@@ -1,4 +1,4 @@
-package com.example.loggerapp.recycler_views.food;
+package com.example.loggerapp.recycler_views;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,51 +10,47 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.loggerapp.content.food.DrinksContent.DrinksItem;
-import com.example.loggerapp.databinding.FragmentDrinksItemBinding;
+import com.example.loggerapp.content.GradeContent.GradeItem;
+import com.example.loggerapp.databinding.FragmentGradeItemBinding;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
-import java.util.Map;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DrinksItem}.
+ * {@link RecyclerView.Adapter} that can display a {@link GradeItem}.
  */
-public class MyDrinksItemRecyclerViewAdapter extends RecyclerView.Adapter<MyDrinksItemRecyclerViewAdapter.ViewHolder> {
+public class MyGradeItemRecyclerViewAdapter extends RecyclerView.Adapter<MyGradeItemRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DrinksItem> mValues;
-    private final Map<String, String> mDrinkType;
+    private final List<GradeItem> mValues;
     private final Fragment mReferencedFragment;
 
-    public MyDrinksItemRecyclerViewAdapter(List<DrinksItem> items, Map<String, String> drinkType, Fragment referencedFragment) {
+    public MyGradeItemRecyclerViewAdapter(List<GradeItem> items, Fragment referencedFragment) {
         mValues = items;
         mReferencedFragment = referencedFragment;
-        mDrinkType = drinkType;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(FragmentDrinksItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new ViewHolder(FragmentGradeItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        Log.i("DrinksDebug", String.valueOf(position) + ":" + mValues.get(position));
         holder.mItem = mValues.get(position);
         holder.mContentView.setText(mValues.get(position).content);
-
         holder.mContentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Long gradeContent = Long.valueOf(holder.mItem.content);
+
                 FirebaseDatabase database = FirebaseDatabase.getInstance("https://loggerapp-68c5b-default-rtdb.europe-west1.firebasedatabase.app");
                 DatabaseReference logsRef = database.getReference().child("logs");
                 String key = logsRef.push().getKey();
 
                 logsRef.child(key).child("timestamp").setValue(System.currentTimeMillis() / 1000);
-                logsRef.child(key).child("type").setValue("drink");
-                logsRef.child(key).child("drink").child("type").setValue(mDrinkType.get(holder.mItem.content).toLowerCase().replace(" ", "_"));
-                logsRef.child(key).child("drink").child("drinkItem").setValue(holder.mItem.content.toLowerCase().replace(" ", "_"));
+                logsRef.child(key).child("type").setValue("grade");
+                logsRef.child(key).child("grade").child("value").setValue(gradeContent);
 
                 Toast.makeText(view.getContext(), String.format("Added to database: %s", holder.mItem.content.toLowerCase().replace(" ", "_")), Toast.LENGTH_LONG).show();
             }
@@ -68,9 +64,9 @@ public class MyDrinksItemRecyclerViewAdapter extends RecyclerView.Adapter<MyDrin
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView mContentView;
-        public DrinksItem mItem;
+        public GradeItem mItem;
 
-        public ViewHolder(FragmentDrinksItemBinding binding) {
+        public ViewHolder(FragmentGradeItemBinding binding) {
             super(binding.getRoot());
             mContentView = binding.content;
         }

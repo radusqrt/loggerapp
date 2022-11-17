@@ -22,6 +22,7 @@ public class LogTypeContent {
         ITEMS.add(new LogTypeItem("Food"));
         ITEMS.add(new LogTypeItem("Supplements or drugs"));
         ITEMS.add(new LogTypeItem("Activity"));
+        ITEMS.add(new LogTypeItem("Grade"));
 
         Collections.sort(ITEMS, (symptomTypeItem, t1) -> symptomTypeItem.content.compareTo(t1.content));
     }
