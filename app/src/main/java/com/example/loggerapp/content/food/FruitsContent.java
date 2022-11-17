@@ -24,6 +24,9 @@ public class FruitsContent {
         ITEMS.add(new FruitsItem("Blueberry"));
         ITEMS.add(new FruitsItem("Raspberry"));
         ITEMS.add(new FruitsItem("Pear"));
+        ITEMS.add(new FruitsItem("Honey"));
+        ITEMS.add(new FruitsItem("Dark Chocolate"));
+
 
         Collections.sort(ITEMS, (FruitsItem, t1) -> FruitsItem.content.compareTo(t1.content));
     }

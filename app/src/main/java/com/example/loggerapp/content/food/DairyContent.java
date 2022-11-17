@@ -21,7 +21,10 @@ public class DairyContent {
         ITEMS.add(new DairyItem("Butter"));
         ITEMS.add(new DairyItem("Cheese"));
         ITEMS.add(new DairyItem("Cream"));
-        ITEMS.add(new DairyItem("Milk"));
+        ITEMS.add(new DairyItem("Cow Milk"));
+        ITEMS.add(new DairyItem("Goat Milk"));
+        ITEMS.add(new DairyItem("Sheep Milk"));
+        ITEMS.add(new DairyItem("Other Milk"));
         ITEMS.add(new DairyItem("Gelato"));
         ITEMS.add(new DairyItem("Kefir"));
         ITEMS.add(new DairyItem("Eggs"));
