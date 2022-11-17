@@ -20,11 +20,15 @@ public class SymptomBodyLocationContent {
         ITEMS.add(new SymptomBodyLocationItem("Eyes"));
         ITEMS.add(new SymptomBodyLocationItem("Neck"));
         ITEMS.add(new SymptomBodyLocationItem("Chest"));
-        ITEMS.add(new SymptomBodyLocationItem("Arm-Left"));
-        ITEMS.add(new SymptomBodyLocationItem("Arm-Right"));
+        ITEMS.add(new SymptomBodyLocationItem("Arm Left"));
+        ITEMS.add(new SymptomBodyLocationItem("Arm Right"));
         ITEMS.add(new SymptomBodyLocationItem("Intestine"));
-        ITEMS.add(new SymptomBodyLocationItem("Leg-Left"));
-        ITEMS.add(new SymptomBodyLocationItem("Leg-Right"));
+        ITEMS.add(new SymptomBodyLocationItem("Leg Left"));
+        ITEMS.add(new SymptomBodyLocationItem("Leg Right"));
+        ITEMS.add(new SymptomBodyLocationItem("Wrist Right"));
+        ITEMS.add(new SymptomBodyLocationItem("Wrist Left"));
+        ITEMS.add(new SymptomBodyLocationItem("Elbow Right"));
+        ITEMS.add(new SymptomBodyLocationItem("Elbow Left"));
 
         Collections.sort(ITEMS, (SymptomBodyLocationItem, t1) -> SymptomBodyLocationItem.content.compareTo(t1.content));
         ITEMS.add(0, new SymptomBodyLocationItem("N/A"));

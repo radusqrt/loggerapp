@@ -73,6 +73,9 @@
         <action
             android:id="@+id/action_foodTypeItemFragment_to_vegetablesItemFragment"
             app:destination="@id/vegetablesItemFragment" />
+        <action
+            android:id="@+id/action_foodTypeItemFragment_to_drinksItemFragment"
+            app:destination="@id/drinksItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/dairyItemFragment"
@@ -109,4 +112,9 @@
         android:name="com.example.loggerapp.fragments.ActivityItemFragment"
         android:label="fragment_activity_item_list"
         tools:layout="@layout/fragment_activity_item_list" />
+    <fragment
+        android:id="@+id/drinksItemFragment"
+        android:name="com.example.loggerapp.fragments.food.DrinksItemFragment"
+        android:label="fragment_drinks_item_list"
+        tools:layout="@layout/fragment_drinks_item_list" />
 </navigation>

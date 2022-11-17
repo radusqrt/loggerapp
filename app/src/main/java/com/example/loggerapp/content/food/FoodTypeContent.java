@@ -22,6 +22,7 @@ public class FoodTypeContent {
         ITEMS.add(new FoodTypeItem("Vegetables"));
         ITEMS.add(new FoodTypeItem("Grains"));
         ITEMS.add(new FoodTypeItem("Specific meals"));
+        ITEMS.add(new FoodTypeItem("Drinks"));
 
         Collections.sort(ITEMS, (FoodTypeItem, t1) -> FoodTypeItem.content.compareTo(t1.content));
     }
