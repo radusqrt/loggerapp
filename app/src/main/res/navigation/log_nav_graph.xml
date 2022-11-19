@@ -79,6 +79,9 @@
         <action
             android:id="@+id/action_foodTypeItemFragment_to_drinksItemFragment"
             app:destination="@id/drinksItemFragment" />
+        <action
+            android:id="@+id/action_foodTypeItemFragment_to_pantryItemFragment"
+            app:destination="@id/pantryItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/dairyItemFragment"
@@ -125,4 +128,9 @@
         android:name="com.example.loggerapp.fragments.GradeItemFragment"
         android:label="fragment_grade_item_list"
         tools:layout="@layout/fragment_grade_item_list" />
+    <fragment
+        android:id="@+id/pantryItemFragment"
+        android:name="com.example.loggerapp.fragments.food.PantryItemFragment"
+        android:label="fragment_pantry_item_list"
+        tools:layout="@layout/fragment_pantry_item_list" />
 </navigation>
