@@ -32,6 +32,8 @@ public class SymptomTypeContent {
         ITEMS.add(new SymptomTypeItem("Tiredness"));
         ITEMS.add(new SymptomTypeItem("Numbness"));
         ITEMS.add(new SymptomTypeItem("Dryness"));
+        ITEMS.add(new SymptomTypeItem("Diarrhea"));
+
 
         Collections.sort(ITEMS, (symptomTypeItem, t1) -> symptomTypeItem.content.compareTo(t1.content));
     }
