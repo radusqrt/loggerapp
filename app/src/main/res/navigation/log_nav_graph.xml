@@ -82,6 +82,12 @@
         <action
             android:id="@+id/action_foodTypeItemFragment_to_pantryItemFragment"
             app:destination="@id/pantryItemFragment" />
+        <action
+            android:id="@+id/action_foodTypeItemFragment_to_specificMealsItemFragment"
+            app:destination="@id/specificMealsItemFragment" />
+        <action
+            android:id="@+id/action_foodTypeItemFragment_to_nutsItemFragment"
+            app:destination="@id/nutsItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/dairyItemFragment"
@@ -133,4 +139,14 @@
         android:name="com.example.loggerapp.fragments.food.PantryItemFragment"
         android:label="fragment_pantry_item_list"
         tools:layout="@layout/fragment_pantry_item_list" />
+    <fragment
+        android:id="@+id/specificMealsItemFragment"
+        android:name="com.example.loggerapp.fragments.food.SpecificMealsItemFragment"
+        android:label="fragment_specific_meals_item_list"
+        tools:layout="@layout/fragment_specific_meals_item_list" />
+    <fragment
+        android:id="@+id/nutsItemFragment"
+        android:name="com.example.loggerapp.fragments.food.NutsItemFragment"
+        android:label="fragment_nuts_item_list"
+        tools:layout="@layout/fragment_nuts_item_list" />
 </navigation>

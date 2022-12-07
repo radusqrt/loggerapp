@@ -26,6 +26,7 @@ public class VegetablesContent {
         ITEMS.add(new VegetablesItem("Cabbage"));
         ITEMS.add(new VegetablesItem("Carrot"));
         ITEMS.add(new VegetablesItem("Cauliflower"));
+        ITEMS.add(new VegetablesItem("Chickpeas"));
         ITEMS.add(new VegetablesItem("Celeriac"));
         ITEMS.add(new VegetablesItem("Celery"));
         ITEMS.add(new VegetablesItem("Corn"));
