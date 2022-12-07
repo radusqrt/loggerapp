@@ -29,6 +29,10 @@ public class ActivityContent {
         ITEMS.add(new ActivityItem("Running: 60m"));
         ITEMS.add(new ActivityItem("Running: 90m"));
         ITEMS.add(new ActivityItem("Running: 120m"));
+        ITEMS.add(new ActivityItem("Meditate: 10m"));
+        ITEMS.add(new ActivityItem("NSDR: 10m"));
+        ITEMS.add(new ActivityItem("Meditate: 20m"));
+        ITEMS.add(new ActivityItem("NSDR: 20m"));
 
         Collections.sort(ITEMS, (symptomTypeItem, t1) -> symptomTypeItem.content.compareTo(t1.content));
     }

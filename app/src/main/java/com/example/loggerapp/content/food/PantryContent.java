@@ -18,12 +18,14 @@ public class PantryContent {
         // Add LogType items.
         ITEMS.add(new PantryItem("Dark Chocolate"));
         ITEMS.add(new PantryItem("Honey"));
-        ITEMS.add(new PantryItem("Peanut"));
         ITEMS.add(new PantryItem("Peanut butter"));
-        ITEMS.add(new PantryItem("Chestnut"));
-        ITEMS.add(new PantryItem("Walnut"));
-        ITEMS.add(new PantryItem("Cashew"));
         ITEMS.add(new PantryItem("Cashew butter"));
+        ITEMS.add(new PantryItem("Cinnamon"));
+        ITEMS.add(new PantryItem("Hummus"));
+        ITEMS.add(new PantryItem("Croissant"));
+        ITEMS.add(new PantryItem("Cake"));
+        ITEMS.add(new PantryItem("Ice Cream"));
+        ITEMS.add(new PantryItem("Protein Bar"));
 
         Collections.sort(ITEMS, (PantryItem, t1) -> PantryItem.content.compareTo(t1.content));
     }

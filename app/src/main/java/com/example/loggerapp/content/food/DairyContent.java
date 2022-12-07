@@ -20,6 +20,8 @@ public class DairyContent {
         ITEMS.add(new DairyItem("Yogurt"));
         ITEMS.add(new DairyItem("Butter"));
         ITEMS.add(new DairyItem("Cheese"));
+        ITEMS.add(new DairyItem("Cottage Cheese"));
+        ITEMS.add(new DairyItem("Feta Cheese"));
         ITEMS.add(new DairyItem("Cream"));
         ITEMS.add(new DairyItem("Cow Milk"));
         ITEMS.add(new DairyItem("Goat Milk"));

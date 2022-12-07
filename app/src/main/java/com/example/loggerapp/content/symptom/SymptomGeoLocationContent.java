@@ -21,6 +21,7 @@ public class SymptomGeoLocationContent {
         ITEMS.add(new SymptomGeoLocationItem("Walk"));
         ITEMS.add(new SymptomGeoLocationItem("Commute"));
         ITEMS.add(new SymptomGeoLocationItem("Sport"));
+        ITEMS.add(new SymptomGeoLocationItem("Standing up"));
 
         Collections.sort(ITEMS, (SymptomGeoLocationItem, t1) -> SymptomGeoLocationItem.content.compareTo(t1.content));
         ITEMS.add(0, new SymptomGeoLocationItem("N/A"));

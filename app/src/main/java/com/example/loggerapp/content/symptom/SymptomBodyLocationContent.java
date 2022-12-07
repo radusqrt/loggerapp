@@ -17,6 +17,9 @@ public class SymptomBodyLocationContent {
     static {
         // Add LogType items.
         ITEMS.add(new SymptomBodyLocationItem("Head"));
+        ITEMS.add(new SymptomBodyLocationItem("Head Right"));
+        ITEMS.add(new SymptomBodyLocationItem("Head Left"));
+        ITEMS.add(new SymptomBodyLocationItem("Forehead"));
         ITEMS.add(new SymptomBodyLocationItem("Eyes"));
         ITEMS.add(new SymptomBodyLocationItem("Neck"));
         ITEMS.add(new SymptomBodyLocationItem("Chest"));

@@ -28,11 +28,13 @@ public class SymptomTypeContent {
         ITEMS.add(new SymptomTypeItem("Weakness"));
         ITEMS.add(new SymptomTypeItem("Tremors"));
         ITEMS.add(new SymptomTypeItem("Blood in stool"));
+        ITEMS.add(new SymptomTypeItem("Pain on bowel movement"));
         ITEMS.add(new SymptomTypeItem("Presyncope"));
         ITEMS.add(new SymptomTypeItem("Tiredness"));
         ITEMS.add(new SymptomTypeItem("Numbness"));
         ITEMS.add(new SymptomTypeItem("Dryness"));
         ITEMS.add(new SymptomTypeItem("Diarrhea"));
+        ITEMS.add(new SymptomTypeItem("Wet brain"));
 
 
         Collections.sort(ITEMS, (symptomTypeItem, t1) -> symptomTypeItem.content.compareTo(t1.content));
