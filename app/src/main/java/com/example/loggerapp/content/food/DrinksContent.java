@@ -44,6 +44,7 @@ public class DrinksContent {
         DRINK_TYPE.put("Black Tea", "Tea");
         DRINK_TYPE.put("Other Tea", "Tea");
         DRINK_TYPE.put("Coca cola", "Soda");
+        DRINK_TYPE.put("Pepsi", "Soda");
         DRINK_TYPE.put("Other soda", "Soda");
         DRINK_TYPE.put("Beer", "Alcohol");
         DRINK_TYPE.put("Gin", "Alcohol");
